@@ -17,5 +17,7 @@ Just a silly js game experiment by Roel & Caroline
 3) open index.html to run the project
 
 other options:
+
     $ gulp dev
+
 this will build the javascript without compression, making it easier to debug in the browser dev tools
