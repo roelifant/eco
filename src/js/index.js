@@ -9,6 +9,8 @@ let maxX = world.offsetWidth;
 let maxY = world.offsetHeight;
 let globalStop = false;
 
+//=include test.js
+
 //create an array of blips
 class Blip {
     constructor(species, DNA, x, y){
@@ -299,7 +301,7 @@ AllGenes = {
         "intelligence": 7, //how likely is it to reflect on its situation
         "energy": 35, //how much energy does it have before it runs out
         "life": 500, //life expectancy
-        "digestion":20, //how much does it gain from food
+        "digestion":15, //how much does it gain from food
         "foodchain": 2
     },
     "bot1": {
@@ -565,7 +567,7 @@ let adaptations = [
         "level": 1,
         "cost": 3,
         "adapt":{
-            "digestion": 3,
+            "digestion": 2,
             "hunger": 10,
             "rest":15,
             "energy":-15
@@ -579,7 +581,7 @@ let adaptations = [
         "level": 5,
         "cost": 5,
         "adapt":{
-            "digestion": 5,
+            "digestion": 3,
             "hunger": 10,
             "rest":15,
             "energy":-15
@@ -593,7 +595,7 @@ let adaptations = [
         "level": 10,
         "cost": 10,
         "adapt":{
-            "digestion": 10,
+            "digestion": 5,
             "hunger": 10,
             "rest":15,
             "energy":-15
@@ -728,7 +730,7 @@ let adaptations = [
             "energy":-10,
             "rest":20,
             "hunger":5,
-            "digestion":3,
+            "digestion":1,
             "hp":2,
             "defence":1,
             "breeding":50,
@@ -748,7 +750,7 @@ let adaptations = [
             "energy":-10,
             "rest":25,
             "hunger":20,
-            "digestion":3,
+            "digestion":1,
             "hp":3,
             "defence":3,
             "attack":1,
