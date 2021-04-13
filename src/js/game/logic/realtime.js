@@ -2,13 +2,13 @@ class RT {
     constructor(speed, actions){
         this.ticks = 0;
         this.speed = speed;
-        this.stop = false;
+        this.stopped = false;
         this.actions = actions;
     }
 
     tick(speed){
         this.ticks++;
-        if(this.stop){
+        if(this.stopped){
             console.log("program paused");
             return;
         }
@@ -20,11 +20,11 @@ class RT {
     }
 
     start(){
-        this.stop = false;
+        this.stopped = false;
         this.tick();
     }
 
     stop(){
-        this.stop = true;
+        this.stopped = true;
     }
 }

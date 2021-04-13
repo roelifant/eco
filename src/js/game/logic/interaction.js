@@ -1,7 +1,7 @@
 //event listeners that handle player actions
 
 DOM.ui.pause.addEventListener("click", ()=>{
-    if(globalStop){
+    if(Game.stopped){
         DOM.ui.pause.innerText = "pause"
         Game.start();
     } else {

@@ -1,20 +1,14 @@
 // global vars that are used by the game.
 // setup of larger globals are moved to seperate files in /content
 
-//this is the Game variable. It's the name of the game.
+//this is the Game variable. It's the name of the realtime game engine that can be started, stopped and altered.
 let Game;
-
-//speed of the game
-let globalSpeed =  80;
 
 //width of game world
 let maxX = world.offsetWidth;
 
 //height of game world
 let maxY = world.offsetHeight;
-
-//is the game paused?
-let globalStop = false;
 
 //gene object
 let AllGenes = {};

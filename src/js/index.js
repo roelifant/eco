@@ -13,12 +13,6 @@
 //=include game/logic/interaction.js
 //=include game/logic/realtime.js
 
-//setup
-renderAdaptations();
-for(let i = 0; i < 150; i++){
-    seed(3+Math.floor(Math.random()*5));
-}
-
 //set the realtime gameloop
 Game = new RT(100,(tick)=>{
     //this happens every tick
@@ -81,6 +75,7 @@ function spawnNewSpecies(time){
     if(time == 650){
         pop.push(new Blip("bot1", AllGenes["bot1"], Math.floor(maxX/2), Math.floor(maxY/2)));
         pop.push(new Blip("bot1", AllGenes["bot1"], Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot1", AllGenes["bot1"], Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
             seed();
@@ -95,6 +90,7 @@ function spawnNewSpecies(time){
         messager("A new species will emerge soon...");
     }
     if(time == 1650){
+        pop.push(new Blip("bot3", AllGenes["bot3"], Math.floor(maxX/2), Math.floor(maxY/2)));
         pop.push(new Blip("bot3", AllGenes["bot3"], Math.floor(maxX/2), Math.floor(maxY/2)));
         pop.push(new Blip("bot3", AllGenes["bot3"], Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
@@ -118,10 +114,11 @@ function spawnNewSpecies(time){
     }
 
     //species 4
-    if(time == 4000){
+    if(time == 3000){
         messager("A new species will emerge soon...");
     }
-    if(time == 4150){
+    if(time == 3150){
+        pop.push(new Blip("bot2", AllGenes["bot2"], Math.floor(maxX/2), Math.floor(maxY/2)));
         pop.push(new Blip("bot2", AllGenes["bot2"], Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
@@ -130,10 +127,11 @@ function spawnNewSpecies(time){
     }
 
     //species 5
-    if(time == 6000){
+    if(time == 4000){
         messager("A new species will emerge soon...");
     }
-    if(time == 6150){
+    if(time == 4150){
+        pop.push(new Blip("bot4", AllGenes["bot4"], Math.floor(maxX/2), Math.floor(maxY/2)));
         pop.push(new Blip("bot4", AllGenes["bot4"], Math.floor(maxX/2), Math.floor(maxY/2)));
         pop.push(new Blip("bot4", AllGenes["bot4"], Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
@@ -144,5 +142,9 @@ function spawnNewSpecies(time){
 }
 
 //start the game up
+for(let i = 0; i < 150; i++){
+    seed(3+Math.floor(Math.random()*5));
+}
+renderAdaptations();
 updatePointsEl();
 Game.start();
