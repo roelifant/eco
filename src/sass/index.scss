@@ -1,8 +1,12 @@
-@use 'components/reset.scss';
+//the reset
+@import 'components/reset.scss';
+
+//variables
+@import 'var/colors.scss';
 
 //the page layout, buttons and other interactable components
-@use 'components/ui.scss';
+@import 'components/ui.scss';
 
 //blips and other objects that appear in the game
-@use 'components/objects.scss';
+@import 'components/objects.scss';
 

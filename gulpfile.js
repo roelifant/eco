@@ -39,4 +39,8 @@ gulp.task('compress', function () {
 gulp.task('default', gulp.series('require', "babel", 'compress', "styles"));
 
 //default task but without compression
-gulp.task('dev', gulp.series('require', "babel", "styles"));
+gulp.task('dev', gulp.series('require', "styles"));
+
+//watch changes
+gulp.task('watch', ()=>{gulp.watch("./src/**/*", gulp.series("default"))});
+gulp.task('watch:dev', ()=>{gulp.watch("./src/**/*", gulp.series("dev"))});

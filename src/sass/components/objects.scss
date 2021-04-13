@@ -3,7 +3,7 @@
     border-radius: 100%;
 
     &.player {
-        background-color: rgb(100, 100, 185);
+        background-color: $playerColor;
     }
 
     &.bot1 {
