@@ -285,7 +285,7 @@ class Blip {
     }
 }
 
-AllGenes = {
+let AllGenes = {
     "player": {
         "rest": 15, //how long must they rest to regain energy
         "hunger": 200, //how long untill they die without food

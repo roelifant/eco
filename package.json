@@ -21,8 +21,10 @@
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-dart-sass": "^1.0.2",
     "gulp-include": "^2.4.1",
     "gulp-requirejs": "^1.4.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^5.0.0"
   }
 }

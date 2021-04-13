@@ -1,0 +1,34 @@
+.blip {
+    position: absolute;
+    border-radius: 100%;
+
+    &.player {
+        background-color: rgb(100, 100, 185);
+    }
+
+    &.bot1 {
+        background-color: rgb(223, 79, 79);
+    }
+
+    &.bot2 {
+        background-color: rgb(156, 91, 194);
+    }
+
+    &.bot3 {
+        background-color: rgb(223, 152, 47);
+    }
+
+    &.bot4 {
+        background-color: rgb(55, 110, 57);
+    }
+
+    &.bot5 {
+        background-color: rgb(87, 230, 230);
+    }
+}
+
+.plant {
+    position: absolute;
+    border-radius: 100%;
+    background-color: rgb(131, 212, 129);
+}

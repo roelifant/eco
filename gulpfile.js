@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const include = require('gulp-include');
+const sass = require('gulp-dart-sass')
 
 //use gulp-include sprockets/snockets syntax to concatenate js files
 gulp.task('require', () =>{
@@ -28,8 +29,9 @@ gulp.task('compress', function () {
 });
 
 //build css
-gulp.task('styles', function() {
-    return gulp.src('./src/css/*.css')
+  gulp.task('styles', function () {
+    return gulp.src('./src/sass/index.scss')
+      .pipe(sass().on('error', sass.logError))
       .pipe(gulp.dest('./dist/css/'));
   });
 
