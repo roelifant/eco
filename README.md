@@ -35,7 +35,8 @@ The overall project structure looks like this:
             | game
                 | logic
                 | var
-            index.js
+            main.js
+            startup.js
         | sass
             | components
             | var
@@ -44,12 +45,12 @@ The overall project structure looks like this:
 
 ### js
 
-- /class -> game objects
-- /content -> the content of big globals that may be edited or added to, like levels, items, upgrades,...
-- /game/logic -> game mechanics; global functions that can be used anywhere. this also contains DOM eventlisteners and the realtime logic
-- /game/var -> this includes all global variables
-
-index.js is used to load in all other .js files and then start the game up.
+- /class => game objects
+- /content => the content of big globals that may be edited or added to, like levels, items, upgrades,...
+- /game/logic => game mechanics; global functions that can be used anywhere. this also contains DOM eventlisteners and the realtime logic
+- /game/var => this includes all global variables
+- main.js => this file holds the main execution of the game, such as what happens in a single game loop
+- startup.js => is used to load in all other .js files and then start the game.
 
 ### sass
 

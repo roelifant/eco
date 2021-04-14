@@ -9,7 +9,7 @@ AllGenes = {
         "defence": 0, //how much enemy attacks can they negate?
         "attack": 1, //how much attack power do they have?
         "gestation": 100, //time from having enough exp to actually breeding
-        "breeding": 150, //how much exp do they need to breed
+        "breeding": 180, //how much exp do they need to breed
         "offspring": 1, //how much offspring does one member have?
         "intelligence": 7, //how likely is it to reflect on its situation
         "energy": 35, //how much energy does it have before it runs out

@@ -2,13 +2,15 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 const include = require('gulp-include');
-const sass = require('gulp-dart-sass')
+const sass = require('gulp-dart-sass');
+const rename = require('gulp-rename');
 
 //use gulp-include sprockets/snockets syntax to concatenate js files
 gulp.task('require', () =>{
-    return gulp.src('./src/js/index.js')
+    return gulp.src('./src/js/startup.js')
     .pipe(include())
       .on('error', console.log)
+    .pipe(rename("index.js"))
     .pipe(gulp.dest('./dist/js/'))
 });
 
