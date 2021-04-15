@@ -64,14 +64,18 @@ class Blip {
 
     action(){
         if(this.hunger < 0){
-            //console.log("a blip has starved");
+            if(this.species == "player"){
+                Player.stats["deaths"]++;
+                Player.stats["starved"]++;
+            }
             this.state = "dead";
             return;
         }
         if(this.life < 0){
-            /*if(this.species == "player"){
-                messager("A blip died of old age", "playerInfo");
-            }*/
+            if(this.species == "player"){
+                Player.stats["deaths"]++;
+                Player.stats["old_age"]++;
+            }
             this.state = "dead";
             return;
         }
@@ -84,8 +88,9 @@ class Blip {
 
                 //player gets one evolution point
                 if(this.species == "player"){
-                    evolutionPoints++;
+                    Player.evolutionPoints++;
                     updatePointsEl();
+                    Player.stats["bred"]++;
                 }
 
                 this.breeding = 0;
@@ -94,6 +99,7 @@ class Blip {
                 //console.log("A new "+this.species+" blip is born!");
                 for(let i = 0; i < this.offspring; i++){
                     pop.push(new Blip(this.species, AllGenes[this.species], this.x,this.y));
+                    Player.stats["offspring"]++;
                 }
             }
         }
@@ -108,16 +114,21 @@ class Blip {
                 }
                 food.hp -= hit;
                 if(food.hp <= 0){
-                    if(this.species != "player" && food.species == "player"){
-                        messager(this.species+" is hunting your blips!", this.species);
-                    }
-                    console.log("a blip was eaten!");
                     // eat
                     food.state = "dead";
-
-                    this.hunger += Math.ceil(food.food * Math.floor(this.digestion*1.5));
+                    let addition = Math.ceil(food.food * Math.floor(this.digestion*1.5));
+                    this.hunger += addition
                     this.breeding += Math.ceil(food.food * 20);
-                    if(this.hunger > this.maxHunger){ this.hunger = this.maxHunger}
+                    if(this.hunger > this.maxHunger){this.hunger = this.maxHunger;}
+                    if(this.species != "player" && food.species == "player"){
+                        messager(this.species+" is hunting your blips!", this.species);
+                        Player.stats["eaten"]++;
+                        Player.stats["deaths"]++;
+                    }
+                    if(this.species == "player"){
+                        Player.stats["hunted"]++;
+                        Player.stats["food"]+=food.food;
+                    }
 
                 } else {
                     //predator gets attacked back
@@ -128,6 +139,10 @@ class Blip {
                     this.hp -= hit;
                     if(this.hp <= 0){
                         console.log("a blip was killed!");
+                        if(this.species == "player"){
+                            Player.stats["killed"]++;
+                            Player.stats["deaths"]++;
+                        }
                         this.state = "dead";
                         return;
                     } else {
@@ -139,11 +154,17 @@ class Blip {
             } else {
                 //eat a plant
                 if(!food.eaten){
-                    this.hunger += Math.ceil(food.food * this.digestion);
+                    let addition = Math.ceil(food.food * this.digestion);
+                    this.hunger += addition;
                     this.breeding += Math.ceil(food.food * 15);
                     this.energy += Math.ceil(food.food*5);
                     if(this.hunger > this.maxHunger){ this.hunger = this.maxHunger}
                     food.eaten = true;
+
+                    if(this.species == "player"){
+                        Player.stats["food"]+=food.food;
+                        Player.stats["digested"]+=addition;
+                    }
                 }
                 plantpop.pop(food);
                 food.element.remove();

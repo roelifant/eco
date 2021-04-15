@@ -20,10 +20,10 @@
 
 
 //Then start the game up
-
 for(let i = 0; i < 150; i++){
     seed(3+Math.floor(Math.random()*5));
 }
+Player = new player();
 renderAdaptations();
 updatePointsEl();
 Game.start();

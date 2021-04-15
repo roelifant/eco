@@ -4,6 +4,9 @@
 //this is the Game variable. It's the name of the realtime game engine that can be started, stopped and altered.
 let Game;
 
+//this is the Player variable. Represents the user that uses the browser and everything they own, have achieved and can do
+let Player;
+
 //width of game world
 let maxX = world.offsetWidth;
 
@@ -21,14 +24,5 @@ let plantpop = [];
 //adaptations object
 let adaptations = [];
 
-//current player options for adaptations
-let adaptOptions = [];
-
 //is killing disabled?
 let truce = false;
-
-//player's evolution points
-let evolutionPoints = 5;
-
-//what level is the player
-let playerLevel = 1;

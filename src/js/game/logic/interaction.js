@@ -8,8 +8,9 @@ DOM.ui.pause.addEventListener("click", ()=>{
         DOM.ui.pause.innerText = "unpause"
         Game.stop();
 
-        console.log(ticks);
+        console.log(Game.ticks);
         console.log(pop);
         console.log(plantpop);
+        console.log(Player.stats);
     }
 });

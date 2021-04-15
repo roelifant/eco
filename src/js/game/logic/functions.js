@@ -37,17 +37,17 @@ function renderAdaptations(){
     DOM.ui.adaptations.innerHTML = "";
 
     let trials = 20;
-    for(let i = 0; i < (6 - adaptOptions.length); i++){
+    for(let i = 0; i < (6 - Player.adaptOptions.length); i++){
         let adap = adaptations[Math.floor(Math.random()*adaptations.length)];
-        if(adap.level <= playerLevel){
-            if(adaptOptions.includes(adap)){
+        if(adap.level <= Player.level){
+            if(Player.adaptOptions.includes(adap)){
                 trials--;
                 if(trials > 0){
                     i--;
                     continue;
                 }
             } else {
-                adaptOptions.push(adap);
+                Player.adaptOptions.push(adap);
             }
         } else {
             trials--;
@@ -58,7 +58,7 @@ function renderAdaptations(){
         }
     }
     
-    adaptOptions.forEach((adap)=>{
+    Player.adaptOptions.forEach((adap)=>{
         let el = document.createElement("div");
         el.classList.add("adaptation");
         
@@ -72,7 +72,7 @@ function renderAdaptations(){
         let btn1 = document.createElement("button");
         btn1.innerText = "Buy for "+adap.cost;
         btn1.addEventListener("click", ()=>{
-            if(adap.cost <= evolutionPoints){
+            if(adap.cost <= Player.evolutionPoints){
                 buy(adap);
             }
         });
@@ -95,11 +95,11 @@ function renderAdaptations(){
 
 //buy an adaptation
 function buy(adap){
-    evolutionPoints -= adap.cost;
-    playerLevel++;
+    Player.evolutionPoints -= adap.cost;
+    Player.level++;
 
     adaptations.splice(adaptations.indexOf(adap),1);
-    adaptOptions.splice(adaptOptions.indexOf(adap),1);
+    Player.adaptOptions.splice(Player.adaptOptions.indexOf(adap),1);
 
     for(let prop in adap.adapt){
         AllGenes["player"][prop] += adap.adapt[prop];
@@ -113,16 +113,16 @@ function buy(adap){
 
 //dump an adaptation
 function dump(adap){
-    evolutionPoints += adap.dump;
+    Player.evolutionPoints += adap.dump;
     adaptations.splice(adaptations.indexOf(adap),1);
-    adaptOptions.splice(adaptOptions.indexOf(adap),1);
+    Player.adaptOptions.splice(Player.adaptOptions.indexOf(adap),1);
     updatePointsEl();
     renderAdaptations();
 }
 
-//update the evolutionpoints on the screen
+//update the Player.evolutionPoints on the screen
 function updatePointsEl(){
-    DOM.ui.points.innerText = evolutionPoints;
+    DOM.ui.points.innerText = Player.evolutionPoints;
 }
 
 //show a message on the screen
