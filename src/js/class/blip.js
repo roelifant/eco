@@ -1,42 +1,44 @@
 class Blip {
-    constructor(species, DNA, x, y){
+    constructor(species, x, y){
+        this.DNA = AllGenes[species];
+
         this.species = species;
         this.x = x;
         this.y = y;
-        this.size = DNA.size;
+        this.size = this.DNA.size;
         this.element = this.buildElement(this.size);
         this.direction = Math.random()*360;
-        this.speed = DNA.speed;
-        this.intelligence = DNA.intelligence;
+        this.speed = this.DNA.speed;
+        this.intelligence = this.DNA.intelligence;
         this.state = "wander";
 
-        this.hunger = Math.floor(DNA.hunger*0.66);
-        this.maxHunger = DNA.hunger;
+        this.hunger = Math.floor(this.DNA.hunger*0.66);
+        this.maxHunger = this.DNA.hunger;
 
-        this.sight = DNA.sight;
+        this.sight = this.DNA.sight;
 
-        this.energy = DNA.energy;
-        this.maxEnergy = DNA.energy;
+        this.energy = this.DNA.energy;
+        this.maxEnergy = this.DNA.energy;
 
-        this.rest = DNA.rest;
-        this.maxRest = DNA.rest;
-        this.life = DNA.life;
+        this.rest = this.DNA.rest;
+        this.maxRest = this.DNA.rest;
+        this.life = this.DNA.life;
 
         this.breeding = 0;
-        this.maxBreeding = DNA.breeding;
+        this.maxBreeding = this.DNA.breeding;
 
-        this.gestation = DNA.gestation;
-        this.maxGestation = DNA.gestation;
+        this.gestation = this.DNA.gestation;
+        this.maxGestation = this.DNA.gestation;
 
-        this.offspring = DNA.offspring;
+        this.offspring = this.DNA.offspring;
 
-        this.digestion = DNA.digestion;
+        this.digestion = this.DNA.digestion;
 
-        this.hp = DNA.hp;
-        this.defence = DNA.defence;
-        this.attack = DNA.attack;
+        this.hp = this.DNA.hp;
+        this.defence = this.DNA.defence;
+        this.attack = this.DNA.attack;
 
-        this.foodchain = DNA.foodchain;
+        this.foodchain = this.DNA.foodchain;
         this.food = this.hp + this.size + 2;
     }
 
@@ -96,11 +98,7 @@ class Blip {
                 this.breeding = 0;
                 this.gestation = this.maxGestation;
 
-                //console.log("A new "+this.species+" blip is born!");
-                for(let i = 0; i < this.offspring; i++){
-                    pop.push(new Blip(this.species, AllGenes[this.species], this.x,this.y));
-                    Player.stats["offspring"]++;
-                }
+                this.breed();
             }
         }
 
@@ -289,5 +287,49 @@ class Blip {
         } else {
             this.state = "wander";
         }
+    }
+
+    breed(){
+        for(let i = 0; i < this.offspring; i++){
+            pop.push(new Blip(this.species,this.x,this.y));
+            Player.stats["offspring"]++;
+        }
+    }
+
+    evolve(){
+        this.DNA = AllGenes[this.species];
+        this.size = this.DNA.size;
+
+        this.element.style.left = this.x - (this.size/2)+"px";
+        this.element.style.top = this.y - (this.size/2)+"px";
+        this.element.style.width = this.size+"px";
+        this.element.style.height = this.size+"px";
+
+        this.direction = Math.random()*360;
+        this.speed = this.DNA.speed;
+        this.intelligence = this.DNA.intelligence;
+        this.maxHunger = this.DNA.hunger;
+
+        this.sight = this.DNA.sight;
+        this.maxEnergy = this.DNA.energy;
+
+        this.rest = this.DNA.rest;
+        this.maxRest = this.DNA.rest;
+        this.life = this.DNA.life;
+
+        this.maxBreeding = this.DNA.breeding;
+        this.maxGestation = this.DNA.gestation;
+
+        this.offspring = this.DNA.offspring;
+        this.digestion = this.DNA.digestion;
+
+        this.hp = this.DNA.hp;
+        this.defence = this.DNA.defence;
+        this.attack = this.DNA.attack;
+
+        this.foodchain = this.DNA.foodchain;
+        this.food = this.hp + this.size + 2;
+
+        console.log(this);
     }
 }

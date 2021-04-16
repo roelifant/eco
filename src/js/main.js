@@ -57,9 +57,9 @@ function spawnNewSpecies(time){
         messager("A new species will emerge soon...");
     }
     if(time == 650){
-        pop.push(new Blip("bot1", AllGenes["bot1"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot1", AllGenes["bot1"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot1", AllGenes["bot1"], Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot1", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot1", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot1", Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
             seed();
@@ -74,9 +74,9 @@ function spawnNewSpecies(time){
         messager("A new species will emerge soon...");
     }
     if(time == 1650){
-        pop.push(new Blip("bot3", AllGenes["bot3"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot3", AllGenes["bot3"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot3", AllGenes["bot3"], Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot3", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot3", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot3", Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
             seed();
@@ -88,9 +88,9 @@ function spawnNewSpecies(time){
         messager("A new species will emerge soon...");
     }
     if(time == 2350){
-        pop.push(new Blip("bot5", AllGenes["bot5"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot5", AllGenes["bot5"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot5", AllGenes["bot5"], Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot5", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot5", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot5", Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
             seed();
@@ -102,8 +102,8 @@ function spawnNewSpecies(time){
         messager("A new species will emerge soon...");
     }
     if(time == 3150){
-        pop.push(new Blip("bot2", AllGenes["bot2"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot2", AllGenes["bot2"], Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot2", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot2", Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
             seed();
@@ -115,9 +115,9 @@ function spawnNewSpecies(time){
         messager("A new species will emerge soon...");
     }
     if(time == 4150){
-        pop.push(new Blip("bot4", AllGenes["bot4"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot4", AllGenes["bot4"], Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot4", AllGenes["bot4"], Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot4", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot4", Math.floor(maxX/2), Math.floor(maxY/2)));
+        pop.push(new Blip("bot4", Math.floor(maxX/2), Math.floor(maxY/2)));
         messager("A new species has appeared");
         for(let i = 0; i < 20; i++){
             seed();

@@ -6,7 +6,7 @@ class RT {
         this.actions = actions;
     }
 
-    tick(speed){
+    tick(){
         this.ticks++;
         if(this.stopped){
             console.log("program paused");
@@ -21,7 +21,7 @@ class RT {
 
     start(){
         this.stopped = false;
-        this.tick();
+        this.tick(this.speed);
     }
 
     stop(){

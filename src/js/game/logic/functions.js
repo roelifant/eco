@@ -73,7 +73,7 @@ function renderAdaptations(){
         btn1.innerText = "Buy for "+adap.cost;
         btn1.addEventListener("click", ()=>{
             if(adap.cost <= Player.evolutionPoints){
-                buy(adap);
+                Player.buy(adap);
             }
         });
 
@@ -81,7 +81,7 @@ function renderAdaptations(){
         btn2.classList.add("dump");
         btn2.innerText = "Dump for "+adap.dump;
         btn2.addEventListener("click", ()=>{
-                dump(adap);
+                Player.dump(adap);
         });
 
         el.appendChild(name);
@@ -91,33 +91,6 @@ function renderAdaptations(){
 
         DOM.ui.adaptations.appendChild(el);
     });
-}
-
-//buy an adaptation
-function buy(adap){
-    Player.evolutionPoints -= adap.cost;
-    Player.level++;
-
-    adaptations.splice(adaptations.indexOf(adap),1);
-    Player.adaptOptions.splice(Player.adaptOptions.indexOf(adap),1);
-
-    for(let prop in adap.adapt){
-        AllGenes["player"][prop] += adap.adapt[prop];
-    }
-
-    console.log(AllGenes["player"]);
-
-    updatePointsEl();
-    renderAdaptations();
-}
-
-//dump an adaptation
-function dump(adap){
-    Player.evolutionPoints += adap.dump;
-    adaptations.splice(adaptations.indexOf(adap),1);
-    Player.adaptOptions.splice(Player.adaptOptions.indexOf(adap),1);
-    updatePointsEl();
-    renderAdaptations();
 }
 
 //update the Player.evolutionPoints on the screen
@@ -134,4 +107,12 @@ function messager(string, type){
     setTimeout(()=>{
         DOM.ui.message.container.style.opacity = 0;
     }, 2000);
+}
+
+function evolveAll(species){
+    pop.forEach(blip => {
+        if(blip.species == species){
+            blip.evolve();
+        }        
+    });
 }
