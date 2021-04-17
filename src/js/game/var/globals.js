@@ -21,6 +21,10 @@ let pop = [];
 //plant population array
 let plantpop = [];
 
+let enemies;
+let speciesColors;
+let activeSpecies = [];
+
 //adaptations object
 let adaptations = [];
 

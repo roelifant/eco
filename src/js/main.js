@@ -47,80 +47,40 @@ Game = new RT(100,(tick)=>{
         }
     }
 
+    checkExtinctions();
     //spawn a new species!
     spawnNewSpecies(tick);
 });
 
 function spawnNewSpecies(time){
     // species 1
-    if(time == 500){
-        messager("A new species will emerge soon...");
+    if(time % 600 == 0){
+        console.log("spawning");
+        spawnEnemy();
     }
-    if(time == 650){
-        pop.push(new Blip("bot1", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot1", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot1", Math.floor(maxX/2), Math.floor(maxY/2)));
-        messager("A new species has appeared");
-        for(let i = 0; i < 20; i++){
-            seed();
-        }
-    }
-    if(time == 700){
-        truce = false;
-    }
+}
 
-    //species 2
-    if(time == 1500){
-        messager("A new species will emerge soon...");
-    }
-    if(time == 1650){
-        pop.push(new Blip("bot3", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot3", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot3", Math.floor(maxX/2), Math.floor(maxY/2)));
-        messager("A new species has appeared");
-        for(let i = 0; i < 20; i++){
-            seed();
+function checkExtinctions(){
+    activeSpecies.forEach((s)=>{
+        //is it still alive
+        let found = false;
+        for(let i = 0; i < pop.length; i++){
+            let blip = pop[i];
+            if(blip.species == s){
+                found = true;
+                break;
+            }
         }
-    }
-
-    //species 3
-    if(time == 2200){
-        messager("A new species will emerge soon...");
-    }
-    if(time == 2350){
-        pop.push(new Blip("bot5", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot5", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot5", Math.floor(maxX/2), Math.floor(maxY/2)));
-        messager("A new species has appeared");
-        for(let i = 0; i < 20; i++){
-            seed();
+        //handle extinction
+        if(!found){
+            if(s == "player"){
+                alert("You lost the game!");
+            } else {
+                activeSpecies.splice(activeSpecies.indexOf(s), 1);
+                speciesColors.push(s);
+                delete AllGenes[s];
+                messager("The "+s+" species has gone extinct!");
+            }
         }
-    }
-
-    //species 4
-    if(time == 3000){
-        messager("A new species will emerge soon...");
-    }
-    if(time == 3150){
-        pop.push(new Blip("bot2", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot2", Math.floor(maxX/2), Math.floor(maxY/2)));
-        messager("A new species has appeared");
-        for(let i = 0; i < 20; i++){
-            seed();
-        }
-    }
-
-    //species 5
-    if(time == 4000){
-        messager("A new species will emerge soon...");
-    }
-    if(time == 4150){
-        pop.push(new Blip("bot4", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot4", Math.floor(maxX/2), Math.floor(maxY/2)));
-        pop.push(new Blip("bot4", Math.floor(maxX/2), Math.floor(maxY/2)));
-        messager("A new species has appeared");
-        for(let i = 0; i < 20; i++){
-            seed();
-        }
-    }
+    });
 }

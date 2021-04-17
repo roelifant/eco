@@ -329,7 +329,5 @@ class Blip {
 
         this.foodchain = this.DNA.foodchain;
         this.food = this.hp + this.size + 2;
-
-        console.log(this);
     }
 }

@@ -42,7 +42,7 @@
 
     button{
         display: block;
-        background-color: rgb(124, 196, 255);
+        background-color: $colorButtonBuy;
         color: white;
         font-weight:bold;
         cursor: pointer;
@@ -50,7 +50,7 @@
     }
 
     button.dump{
-        background-color: rgb(255, 124, 124);
+        background-color: $colorButtonDump;
         color: white;
         font-weight:bold;
     }
@@ -84,27 +84,43 @@
     font-size: 2rem;
 
     &.playerInfo {
-        color: rgb(100, 100, 185);
+        color: $colorPlayerColor;
         font-size: 1.2rem;
     }
-    &.bot1 {
-        color: rgb(223, 79, 79);
+    &.red {
+        color: $colorBlipRed;
         font-size: 1.2rem;
     }
-    &.bot2 {
-        color: rgb(156, 91, 194);
+    &.purple {
+        color: $colorBlipPurple;
         font-size: 1.2rem;
     }
-    &.bot3 {
-        color: rgb(223, 152, 47);
+    &.orange {
+        color: $colorBlipOrange;
         font-size: 1.2rem;
     }
-    &.bot4 {
-        color: rgb(55, 110, 57);
+    &.green {
+        color: $colorBlipGreen;
         font-size: 1.2rem;
     }
-    &.bot5 {
-        color: rgb(87, 230, 230);
+    &.cyan {
+        color: $colorBlipCyan;
+        font-size: 1.2rem;
+    }
+    &.black {
+        color: $colorBlipBlack;
+        font-size: 1.2rem;
+    }
+    &.grey {
+        color: $colorBlipGrey;
+        font-size: 1.2rem;
+    }
+    &.pink {
+        color: $colorBlipPink;
+        font-size: 1.2rem;
+    }
+    &.brown {
+        color: $colorBlipBrown;
         font-size: 1.2rem;
     }
 }

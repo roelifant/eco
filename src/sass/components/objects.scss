@@ -3,32 +3,52 @@
     border-radius: 100%;
 
     &.player {
-        background-color: $playerColor;
+        background-color: $colorPlayerColor;
     }
 
-    &.bot1 {
-        background-color: rgb(223, 79, 79);
+    &.red {
+        background-color: $colorBlipRed;
     }
 
-    &.bot2 {
-        background-color: rgb(156, 91, 194);
+    &.purple {
+        background-color: $colorBlipPurple;
     }
 
-    &.bot3 {
-        background-color: rgb(223, 152, 47);
+    &.orange {
+        background-color: $colorBlipOrange;
     }
 
-    &.bot4 {
-        background-color: rgb(55, 110, 57);
+    &.green {
+        background-color: $colorBlipGreen;
     }
 
-    &.bot5 {
-        background-color: rgb(87, 230, 230);
+    &.cyan {
+        background-color: $colorBlipCyan;
+    }
+
+    &.black {
+        background-color: $colorBlipBlack;
+    }
+
+    &.grey {
+        background-color: $colorBlipGrey;
+    }
+
+    &.pink {
+        background-color: $colorBlipPink;
+    }
+
+    &.brown {
+        background-color: $colorBlipBrown;
+    }
+
+    &.yellow {
+        background-color: $colorBlipYellow;
     }
 }
 
 .plant {
     position: absolute;
     border-radius: 100%;
-    background-color: rgb(131, 212, 129);
+    background-color: $colorPlantGreen;
 }

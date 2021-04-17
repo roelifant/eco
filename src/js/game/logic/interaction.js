@@ -12,5 +12,6 @@ DOM.ui.pause.addEventListener("click", ()=>{
         console.log(pop);
         console.log(plantpop);
         console.log(Player.stats);
+        console.log(AllGenes);
     }
 });

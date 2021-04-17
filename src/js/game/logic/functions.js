@@ -32,6 +32,16 @@ function distanceBetween(obj1, obj2) {
     return Math.sqrt(((obj1.x - obj2.x) * (obj1.x - obj2.x)) + ((obj1.y - obj2.y) * (obj1.y - obj2.y)));
 }
 
+function randomString(length) {
+    let result           = [];
+    let characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result.push(characters.charAt(Math.floor(Math.random() * charactersLength)));
+   }
+   return result.join('');
+}
+
 //show the adaptationOptions on the screen
 function renderAdaptations(){
     DOM.ui.adaptations.innerHTML = "";
@@ -115,4 +125,49 @@ function evolveAll(species){
             blip.evolve();
         }        
     });
+}
+
+function spawnEnemy(){
+    //find an enemy that fits the current difficulty curve
+    let choice;
+    for(let i = 0; i < 10; i++){
+        let enemy = enemies[Math.floor(Math.random()*enemies.length)];
+        if(enemy.level <= Math.ceil(Game.ticks/500)){
+            choice = enemy;
+            break;
+        }
+    }
+    if(choice == undefined){
+        return;
+    }
+
+    //remove from enemies
+    choice.count--;
+    if(choice.count <= 0){
+        enemies.splice(enemies.indexOf(choice), 1);
+    }
+
+    //first add DNA to AllGenes
+    let id = speciesColors[Math.floor(Math.random()*speciesColors.length)];
+    AllGenes[id] = choice.DNA;
+    speciesColors.splice(speciesColors.indexOf(id), 1);
+    console.log(speciesColors);
+    activeSpecies.push(id);
+
+    //then spawn enemies that use that DNA on a random place
+    let possibleSpawn = [
+        [maxX/2, maxY/2],
+        [maxX/4, maxY/4],
+        [maxX/2, maxY/4],
+        [maxX*0.75, maxY/4],
+        [maxX*0.75, maxY/2],
+        [maxX*0.75, maxY*0.75],
+        [maxX/2, maxY*0.75],
+        [maxX/4, maxY*0.75],
+        [maxX/4, maxY/2]
+    ];
+    let place = possibleSpawn[Math.floor(Math.random()*possibleSpawn.length)];
+    for(let i = 0; i < choice.start; i++){
+        pop.push(new Blip(id, place[0], place[1]));
+    }
 }
